@@ -1,0 +1,24 @@
+What is the location framework called in iOS>
+Location Manager
+
+2 numbers that determine location are?
+Longitude and Latitude
+
+There are two types of keys you need to add to the info.plist in order to use GPS of a device, what are they?
+Privacy - Location Always and when in use
+Privacy - When in use
+
+Can we explain the role of the CLLocationManger delegate that we looked at?
+It delegates the work of the location manager
+
+How can you simulatelocation on the simulator?
+With a pretend location on Xcode
+
+How do you create custom simulator for testing?
+Using a GPX file
+
+How can you automatically tell the simulator to use this when you run your app?
+Scheme Editor/options tab
+
+Divide locationLabel from single coordinate name into latitude and Longitude
+
