@@ -1,0 +1,104 @@
+# ViewController
+
+
+
+import UIKit
+import MapKit
+
+
+
+
+class ViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
+    var latitudeSlider: CLLocationDegrees = 0
+    var longitudeSlider: CLLocationDegrees = 0
+    //added these zero values in because the longitude and latitude values need a starting value, therefore = 0
+    
+    
+    
+    
+    @IBAction func SliderLatitude( sender: UISlider){
+        labelLatitude.text = String(sender.value)
+        latitudeSlider = CLLocationDegrees(sender.value)
+        
+    }
+    
+    @IBAction func SliderLongitude( sender: UISlider){
+        labelLongitude.text = String(sender.value)
+        longitudeSlider = CLLocationDegrees(sender.value)
+        
+        
+             
+        
+        
+}
+    @IBAction func buttonButton(_ sender: Any) {
+    }
+    let span = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
+    let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude:
+        latitudeSlider, longitude: longitudeSlider), span: span)
+    mapView.setRegion(region, animated: true)
+    
+    let getAddress = Address()
+    getAddress.latitude = latSlider
+    getAddress.longitude = longSlider
+    
+    let annotation = customAnnotation(address: getAddress)
+    mapView.addAnnotation(annotation)
+    //The above line is key for the map concept to function correctly, without this it won't work
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var labelLongitude: UILabel!
+    @IBOutlet weak var labelLatitude: UILabel!
+    
+override func viewDidLoad(){
+    super.viewDidLoad()
+}
+
+    
+}
+
+# Address 
+
+import Foundation
+import MapKit
+
+class Address: NSObject {
+    
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
+    var title = "New Location"
+    
+    
+    
+}
+
+# Custom Annotation
+
+import Foundation
+import MapKit
+
+class customAnnotation: NSObject, MKAnnotation {
+    var coordinate: CLLocationCoordinate2D
+    var title: String?
+    init(address: Address) {
+        self.coordinate = CLLocationCoordinate2D(latitude: address.latitude!, longitude: address.longitude!)
+        self.title = address.title
+    }
+}
+
+
+
+
+
+
+    
