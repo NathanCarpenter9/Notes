@@ -1,0 +1,4 @@
+It is bad to have a 'back' button on the second view controller because each time it is pressed a new screen is produced, slowing down the phone
+
+
+
